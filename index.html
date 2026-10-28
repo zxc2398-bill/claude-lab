@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>洪揚的自我介紹</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-1: #ffe27a;
+      --bg-2: #ffbf47;
+      --bg-3: #ff9152;
+      --bg-4: #ffd166;
+
+      --title-1: #f7a21b;
+      --title-2: #f07d1f;
+      --title-3: #ea5a2a;
+
+      --card: rgba(255, 253, 246, 0.88);
+      --card-border: rgba(255, 255, 255, 0.75);
+      --tile: #ffffff;
+      --tile-border: rgba(200, 120, 30, 0.12);
+
+      --text: #3a2615;
+      --text-muted: #6b4f38;
+      --text-faint: #b08a62;
+      --accent: #e0661a;
+      --accent-soft: rgba(255, 168, 60, 0.18);
+
+      --radius-lg: 32px;
+      --radius-md: 22px;
+      --shadow-lg: 0 30px 80px -20px rgba(190, 90, 10, 0.45);
+      --shadow-md: 0 12px 30px -12px rgba(190, 90, 10, 0.3);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 56px 16px;
+      overflow-x: hidden;
+      background-color: var(--bg-2);
+      background-image:
+        radial-gradient(at 15% 10%, rgba(255, 252, 220, 0.75) 0, transparent 45%),
+        radial-gradient(at 85% 90%, rgba(255, 120, 70, 0.4) 0, transparent 50%),
+        linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 40%, var(--bg-3) 75%, var(--bg-4) 100%);
+      background-size: 100% 100%, 100% 100%, 220% 220%;
+      background-attachment: fixed;
+      animation: gradientShift 18s ease-in-out infinite;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0 0, 0 0, 0% 50%; }
+      50%      { background-position: 0 0, 0 0, 100% 50%; }
+    }
+
+    /* 背景漂浮光暈 */
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.6;
+      z-index: 0;
+      pointer-events: none;
+      animation: float 14s ease-in-out infinite;
+    }
+
+    body::before {
+      background: #fff6b0;
+      top: -120px;
+      left: -100px;
+    }
+
+    body::after {
+      background: #ffa36b;
+      bottom: -140px;
+      right: -100px;
+      animation-delay: -7s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50%      { transform: translate(40px, 30px) scale(1.1); }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 720px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 56px 48px 40px;
+      backdrop-filter: blur(24px) saturate(160%);
+      -webkit-backdrop-filter: blur(24px) saturate(160%);
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      animation: fadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .avatar {
+      width: 136px;
+      height: 136px;
+      margin: 0 auto 28px;
+      border-radius: 50%;
+      display: block;
+      object-fit: cover;
+      object-position: center 30%;
+      padding: 4px;
+      background: linear-gradient(135deg, var(--title-1), var(--title-2), var(--title-3));
+      box-shadow: var(--shadow-md);
+    }
+
+    h1 {
+      font-size: clamp(2.25rem, 6vw, 3rem);
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      background: linear-gradient(135deg, var(--title-1), var(--title-2) 50%, var(--title-3));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      display: inline-block;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 6px 18px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+    }
+
+    .intro {
+      font-size: 1.05rem;
+      line-height: 2;
+      color: var(--text-muted);
+      max-width: 34em;
+      margin: 0 auto 44px;
+      text-align: justify;
+      text-align-last: center;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--text-faint);
+      margin-bottom: 22px;
+    }
+
+    .section-title::before,
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.35;
+    }
+
+    .hobbies {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      text-align: left;
+    }
+
+    .hobby {
+      background: var(--tile);
+      border: 1px solid var(--tile-border);
+      border-radius: var(--radius-md);
+      padding: 26px 24px 28px;
+      box-shadow: 0 2px 8px rgba(190, 90, 10, 0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hobby:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .hobby .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+    }
+
+    .hobby:nth-child(1) .icon {
+      background: linear-gradient(135deg, #ffe680, #ffad33);
+    }
+
+    .hobby:nth-child(2) .icon {
+      background: linear-gradient(135deg, #b5e6ff, #5cb6f0);
+    }
+
+    .hobby h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .hobby p {
+      font-size: 0.97rem;
+      line-height: 1.85;
+      color: var(--text-muted);
+    }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 22px;
+      border-top: 1px solid var(--tile-border);
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      color: var(--text-faint);
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 32px 16px; }
+      .card { padding: 40px 22px 32px; border-radius: 26px; }
+      .avatar { width: 112px; height: 112px; }
+      .intro { text-align: left; text-align-last: auto; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <img class="avatar" src="photo.jpg" alt="洪揚的照片">
+      <h1>洪揚</h1>
+      <p class="subtitle">熱愛運動 ・ 享受旅行</p>
+
+      <p class="intro">
+        大家好！我是洪揚，很高興認識你。我喜歡讓生活充滿活力與新鮮感，
+        平時透過運動保持健康與好心情，有空時就背起行囊，到不同的地方看看世界、
+        認識新朋友、體驗各地的文化與美食。
+      </p>
+
+      <h2 class="section-title">我的興趣</h2>
+
+      <div class="hobbies">
+        <div class="hobby">
+          <div class="icon">🏃‍♂️</div>
+          <h3>運動</h3>
+          <p>運動讓我保持身心平衡，也讓我學會堅持與挑戰自我。流汗之後的暢快感，是我最喜歡的時刻。</p>
+        </div>
+        <div class="hobby">
+          <div class="icon">✈️</div>
+          <h3>旅遊</h3>
+          <p>旅行讓我走出舒適圈，看見不同的風景與生活方式。每一趟旅程，都是一次全新的故事。</p>
+        </div>
+      </div>
+
+      <footer>© 2026 洪揚 ・ 謝謝你的來訪</footer>
+    </section>
+  </main>
+</body>
+</html>
